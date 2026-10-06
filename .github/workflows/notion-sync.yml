@@ -1,0 +1,26 @@
+name: notion-sync
+
+# When a PR merges, link it to its Notion task (and mark the task Done on "Closes TASK-NN").
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  sync:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync PR to Notion
+        run: python scripts/notion_sync.py
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          # Tasks database (Second Brain 2.0 / Databases / Tasks). Not a secret.
+          NOTION_TASKS_DB_ID: 26413914-6cd2-4c4f-9e7f-33a7a935173e
