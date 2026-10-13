@@ -30,8 +30,6 @@ enum CardSource: String, Codable {
     case generated
 }
 
-
-
 @Model
 final class Card {
     var id: UUID = UUID()
