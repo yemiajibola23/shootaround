@@ -3,9 +3,6 @@ import Foundation
 import SwiftData
  @testable import Shootaround
 
-
-
-
 struct ReviewTests {
     @Test func reviewOptionalFieldsDefaultToNil() {
         // 1. Make a UUID to stand in for the card this review belongs to
