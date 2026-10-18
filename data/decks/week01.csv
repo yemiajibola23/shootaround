@@ -1,0 +1,11 @@
+deck,concept,kind,prompt,answer,source
+iOS,Swift enum raw values,recall,"What does `enum Deck: String` give you for free?","A failable initializer init?(rawValue:) that returns the matching case, or nil if the text matches no case",manual
+iOS,Swift enum raw values,code,"Write an enum Conference with raw type String, cases east and west, and text East and West.","enum Conference: String { case east = ""East""; case west = ""West"" }",manual
+iOS,Swift value vs reference types,explain,"Why must a SwiftData @Model be a class and not a struct?","A class is a reference type: one object is shared by everything holding it, so SwiftData can watch that one object for changes. A struct is copied on assignment, so changes would land on copies SwiftData isn't tracking.",manual
+iOS,SwiftData @Model,recall,"Which id does @Model add to every model class, and how do you get a UUID id instead?","A PersistentIdentifier named id. Declare your own var id: UUID = UUID() in the class and it replaces it.",manual
+iOS,Test design,explain,"Why can a passing test be misleading, and how do you guard against it?","It may pass for an unintended reason, such as the macro's built-in id differing per object. Tighten the assertion, for example by forcing the expected type, and make sure you've seen the test fail first.",manual
+iOS,Swift optionals,recall,What does the ? in String? allow a property to hold,A String or nil; the compiler forces you to unwrap it before you use it,manual
+iOS,Swift error handling,explain,Why throw an error instead of returning nil from a failing parser,nil only says that it failed; a thrown error says why and carries the bad value,manual
+iOS,Swift error handling,code,Write a guard let that builds a CardKind from text or throws badKind,guard let kind = CardKind(rawValue: text) else { throw CardRowError.badKind(text) },manual
+iOS,Test-driven development,explain,How do you trust a test that passes the first time you run it,Break the code on purpose (a mutation check) and confirm the test fails; then restore it,manual
+iOS,Swift arrays,explain,Why must parseRow check the column count before reading columns[5],An out-of-range index crashes the whole process and cannot be caught; checking the count first lets you throw instead,manual

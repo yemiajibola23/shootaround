@@ -14,19 +14,11 @@
 			remoteGlobalIDString = DB62CD0E30746EB800769E49;
 			remoteInfo = Shootaround;
 		};
-		DB62CD2730746EB800769E49 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB62CD0730746EB800769E49 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB62CD0E30746EB800769E49;
-			remoteInfo = Shootaround;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DB62CD0F30746EB800769E49 /* Shootaround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shootaround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB62CD1C30746EB800769E49 /* ShootaroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShootaroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB62CD2630746EB800769E49 /* ShootaroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShootaroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +30,6 @@
 		DB62CD1F30746EB800769E49 /* ShootaroundTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ShootaroundTests;
-			sourceTree = "<group>";
-		};
-		DB62CD2930746EB800769E49 /* ShootaroundUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ShootaroundUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -58,11 +45,6 @@
 			files = (
 			);
 		};
-		DB62CD2330746EB800769E49 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-			);
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -71,7 +53,6 @@
 			children = (
 				DB62CD1130746EB800769E49 /* Shootaround */,
 				DB62CD1F30746EB800769E49 /* ShootaroundTests */,
-				DB62CD2930746EB800769E49 /* ShootaroundUITests */,
 				DB62CD1030746EB800769E49 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,7 +62,6 @@
 			children = (
 				DB62CD0F30746EB800769E49 /* Shootaround.app */,
 				DB62CD1C30746EB800769E49 /* ShootaroundTests.xctest */,
-				DB62CD2630746EB800769E49 /* ShootaroundUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,27 +108,6 @@
 			productReference = DB62CD1C30746EB800769E49 /* ShootaroundTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DB62CD2530746EB800769E49 /* ShootaroundUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DB62CD3430746EB800769E49 /* Build configuration list for PBXNativeTarget "ShootaroundUITests" */;
-			buildPhases = (
-				DB62CD2230746EB800769E49 /* Sources */,
-				DB62CD2330746EB800769E49 /* Frameworks */,
-				DB62CD2430746EB800769E49 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DB62CD2830746EB800769E49 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				DB62CD2930746EB800769E49 /* ShootaroundUITests */,
-			);
-			name = ShootaroundUITests;
-			productName = ShootaroundUITests;
-			productReference = DB62CD2630746EB800769E49 /* ShootaroundUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,10 +124,6 @@
 					DB62CD1B30746EB800769E49 = {
 						CreatedOnToolsVersion = 27.0;
 						LastSwiftMigration = 2700;
-						TestTargetID = DB62CD0E30746EB800769E49;
-					};
-					DB62CD2530746EB800769E49 = {
-						CreatedOnToolsVersion = 27.0;
 						TestTargetID = DB62CD0E30746EB800769E49;
 					};
 				};
@@ -189,7 +144,6 @@
 			targets = (
 				DB62CD0E30746EB800769E49 /* Shootaround */,
 				DB62CD1B30746EB800769E49 /* ShootaroundTests */,
-				DB62CD2530746EB800769E49 /* ShootaroundUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -201,11 +155,6 @@
 			);
 		};
 		DB62CD1A30746EB800769E49 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
-			);
-		};
-		DB62CD2430746EB800769E49 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -223,11 +172,6 @@
 			files = (
 			);
 		};
-		DB62CD2230746EB800769E49 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -235,11 +179,6 @@
 			isa = PBXTargetDependency;
 			target = DB62CD0E30746EB800769E49 /* Shootaround */;
 			targetProxy = DB62CD1D30746EB800769E49 /* PBXContainerItemProxy */;
-		};
-		DB62CD2830746EB800769E49 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DB62CD0E30746EB800769E49 /* Shootaround */;
-			targetProxy = DB62CD2730746EB800769E49 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -486,46 +425,6 @@
 			};
 			name = Release;
 		};
-		DB62CD3530746EB800769E49 /* Debug configuration for PBXNativeTarget "ShootaroundUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 767ELXNDQ9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yemi.ShootaroundUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Shootaround;
-			};
-			name = Debug;
-		};
-		DB62CD3630746EB800769E49 /* Release configuration for PBXNativeTarget "ShootaroundUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 767ELXNDQ9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yemi.ShootaroundUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Shootaround;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -550,14 +449,6 @@
 			buildConfigurations = (
 				DB62CD3230746EB800769E49 /* Debug configuration for PBXNativeTarget "ShootaroundTests" */,
 				DB62CD3330746EB800769E49 /* Release configuration for PBXNativeTarget "ShootaroundTests" */,
-			);
-			defaultConfigurationName = Release;
-		};
-		DB62CD3430746EB800769E49 /* Build configuration list for PBXNativeTarget "ShootaroundUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB62CD3530746EB800769E49 /* Debug configuration for PBXNativeTarget "ShootaroundUITests" */,
-				DB62CD3630746EB800769E49 /* Release configuration for PBXNativeTarget "ShootaroundUITests" */,
 			);
 			defaultConfigurationName = Release;
 		};
