@@ -33,9 +33,6 @@ struct CSVParserTests {
         let badKindRow = "iOS,structured concurrency,blah blah,What is a task group?,A way to run child tasks in parallel,manual"
         let badSourceRow = "iOS,structured concurrency,recall,What is a task group?,A way to run child tasks in parallel,blah blah"
 
-
-        // 2. Three #expect(throws:) checks, one per row.
-        //    Each expects the specific error case, carrying the exact bad text you used.
         #expect(throws: CardRowError.badDeck("blah blah")) { try parseRow(badDeckRow) }
         #expect(throws: CardRowError.badKind("blah blah")) { try parseRow(badKindRow) }
         #expect(throws: CardRowError.badSource("blah blah")) { try parseRow(badSourceRow) }
