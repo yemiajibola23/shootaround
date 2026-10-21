@@ -29,7 +29,7 @@ This is the opposite of hand-off mode. Yemi writes the app and service code; Cla
 
 ## How Yemi learns (read first)
 
-Source of truth: project doc `claude/learning-method.md` (concept map, levels, assessment). Summary:
+Source of truth: `docs/learning-method.md` (concept map, levels, assessment; copy of the claude.ai Project doc `claude/learning-method.md`). Summary:
 
 **Reply format (highest priority).** Long blocks of text are hard for Yemi to read; he skims to the end and misses details.
 - Short chunks: at most ~5 lines of prose between breaks, one idea per chunk.
@@ -107,4 +107,4 @@ One branch = one conversation = one Notion task. If a task is too big for one se
 ## Status
 
 Live state: the Notion task and the latest file in `docs/logs/`. Read both first every session.
-Summary: Week 1 sessions 1–2 merged (PR #1 Card + enums; PR #4 Review + `parseRow`). Learning method v2 adopted Oct 18, 2026 after a 12-question skills assessment (see `claude/learning-method.md`). Next: TASK-153 · W01-C · CSV deck parser + 20-card deck (`w01/csv-deck-parser`).
+Summary: Week 1 sessions 1–2 merged (PR #1 Card + enums; PR #4 Review + `parseRow`). Week 1 session 3 merged (PR #7: `splitFields`, `parseDeck`, 20-card deck). Learning method v2 adopted Oct 18, 2026 after a 12-question skills assessment (see `docs/learning-method.md`). Next: W02-A · SM-2 core update rule (`w02/sm2-core`). Known gap: `splitFields` drops escaped quotes (`""`). Run tests from a local session.
