@@ -74,15 +74,20 @@ struct SM2Tests {
     }
     
     @Test func intervalRoundsToNearest() {
-        // 1. Build a state: ease 2.3, interval 4, repetitions 2
         let state = SM2State(ease: 2.3, intervalDays: 4, repetitions: 2)
 
-        // 2. Call sm2Update with grade 4
         let sut = sm2Update(state, grade: 4)
 
-        // 3. #expect intervalDays equals round-to-nearest of 4 * 2.3
         #expect(sut.intervalDays == 9)
         #expect(sut.repetitions == 3)
-
+    }
+    
+    @Test func secondPassSetsSixDayInterval() {
+        let state = SM2State(ease: 2.5, intervalDays: 1, repetitions: 1)
+        
+        let sut = sm2Update(state, grade: 4)
+        
+        #expect(sut.intervalDays == 6)
+        #expect(sut.repetitions == 2)
     }
 }
