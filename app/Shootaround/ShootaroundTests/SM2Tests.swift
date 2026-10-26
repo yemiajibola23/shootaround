@@ -34,6 +34,10 @@ func sm2Update(_ state: SM2State, grade: Int) -> SM2State {
     return SM2State(ease: max(ease, 1.3), intervalDays: newInterval, repetitions: newRepetitons)
 }
 
+func dueDate(reviewDate: Date, intervalDays: Int, calendar: Calendar) -> Date {
+        return calendar.date(byAdding: .day, value: intervalDays, to: reviewDate)!
+}
+
 struct SM2Tests {
     @Test func firstPassSetsOneDayInterval() {
         let sut = SM2State(ease: 2.5, intervalDays: 0, repetitions: 0)
@@ -89,5 +93,25 @@ struct SM2Tests {
         
         #expect(sut.intervalDays == 6)
         #expect(sut.repetitions == 2)
+    }
+    
+    @Test func dueDateCrossesFallBack() {
+        // 1. Build a Chicago calendar
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "America/Chicago")!
+        // 2. Build a review time shortly after midnight on Oct 31, 2026
+        var components = DateComponents()
+        components.year = 2026
+        components.month = 10
+        components.day = 31
+        components.hour = 0
+        components.minute = 2
+        
+        let octoberDate = calendar.date(from: components)
+        // 3. Compute the due date for a 2-day interval
+        let sut = dueDate(reviewDate: octoberDate!, intervalDays: 2, calendar: calendar)
+        
+        // 4. Expect the day number you'd see on a wall calendar
+        #expect(calendar.component(.day, from: sut) == 2)
     }
 }
