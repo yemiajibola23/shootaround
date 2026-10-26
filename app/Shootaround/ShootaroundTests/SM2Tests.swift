@@ -13,6 +13,12 @@ struct SM2State {
     var repetitions: Int
 }
 
+func calculateEase(oldEase: Double, grade: Int) -> Double {
+    let gap = (0.08 + (5 - Double(grade)) * 0.02)
+    let easeFormula = (0.1 - (5 - Double(grade)) * gap)
+    return oldEase + easeFormula
+}
+
 func sm2Update(_ state: SM2State, grade: Int) -> SM2State {
     if grade < 3 { return SM2State(ease: state.ease, intervalDays: 1, repetitions: 0) }
 
@@ -26,12 +32,9 @@ func sm2Update(_ state: SM2State, grade: Int) -> SM2State {
     }
 
     let newRepetitons = state.repetitions + 1
-
-    let gap = (0.08 + (5 - Double(grade)) * 0.02)
-    let easeFormula = (0.1 - (5 - Double(grade)) * gap)
-    let ease =  state.ease + easeFormula
+    let newEase = calculateEase(oldEase: state.ease, grade: grade)
     
-    return SM2State(ease: max(ease, 1.3), intervalDays: newInterval, repetitions: newRepetitons)
+    return SM2State(ease: max(newEase, 1.3), intervalDays: newInterval, repetitions: newRepetitons)
 }
 
 func dueDate(reviewDate: Date, intervalDays: Int, calendar: Calendar) -> Date {
@@ -108,10 +111,15 @@ struct SM2Tests {
         components.minute = 2
         
         let octoberDate = calendar.date(from: components)
-        // 3. Compute the due date for a 2-day interval
         let sut = dueDate(reviewDate: octoberDate!, intervalDays: 2, calendar: calendar)
         
-        // 4. Expect the day number you'd see on a wall calendar
         #expect(calendar.component(.day, from: sut) == 2)
+    }
+    
+    @Test func gradeThreeStillCountsAsPass() {
+        let state = SM2State(ease: 2.5, intervalDays: 6, repetitions: 2)
+        let sut = sm2Update(state, grade: 3)
+        #expect(sut.intervalDays == 15)
+        #expect(abs(sut.ease - 2.36) < 0.0001)
     }
 }
