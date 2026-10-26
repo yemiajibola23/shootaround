@@ -78,7 +78,7 @@ One branch = one conversation = one Notion task. If a task is too big for one se
 ## Code conventions
 
 - Swift Testing: `@Test`, `#expect`, `@testable import Shootaround`. Test structs named `<Thing>Tests`.
-- Step comments are numbered (`// 1. …`) and stay in the code as Yemi fills them in.
+- Step comments are numbered (`// 1. …`). They guide Yemi while he writes; he can delete them once the code is in.
 - While developing, the system under test lives in the same file as its test. Once green, move it into the app target (Claude handles the move and target membership).
 - Enums that come from CSV text use `String` raw values matching the CSV exactly (e.g. `Deck.aiEngineering = "AI Engineering"`).
 
@@ -94,6 +94,7 @@ One branch = one conversation = one Notion task. If a task is too big for one se
 
 - Branches: `wNN/short-name` for build tasks (e.g. `w02/sm2-scheduler`); `chore/short-name` for tooling. Branch from `main`.
 - PR title `TASK-NN: Title`. Body `Closes TASK-NN` (task → Done, Completed on, PR link) or `Ref TASK-NN` (link only).
+- Commit after each red → green → refactor cycle: Claude commits Yemi's work once a piece is green, and again after a refactor.
 - Claude opens the PR. After Yemi approves, run `scripts/merge_and_sync.sh <pr>` (the GitHub Action was retired in PR #2; sync is local).
 
 ## Guardrails (never break these)
@@ -107,4 +108,4 @@ One branch = one conversation = one Notion task. If a task is too big for one se
 ## Status
 
 Live state: the Notion task and the latest file in `docs/logs/`. Read both first every session.
-Summary: Week 1 sessions 1–2 merged (PR #1 Card + enums; PR #4 Review + `parseRow`). Week 1 session 3 merged (PR #7: `splitFields`, `parseDeck`, 20-card deck). Learning method v2 adopted Oct 18, 2026 after a 12-question skills assessment (see `docs/learning-method.md`). Next: W02-A · SM-2 core update rule (`w02/sm2-core`). Known gap: `splitFields` drops escaped quotes (`""`). Run tests from a local session.
+Summary: Week 1 sessions 1–2 merged (PR #1 Card + enums; PR #4 Review + `parseRow`). Week 1 session 3 merged (PR #7: `splitFields`, `parseDeck`, 20-card deck). Learning method v2 adopted Oct 18, 2026 after a 12-question skills assessment (see `docs/learning-method.md`). Week 2 session 1 merged (PR #9: `sm2Update`, 5 tests). W02-B (`w02/sm2-due-dates`) in progress: 8 tests, `dueDate`; 2 tests left before PR. Then W02-C · Package the SM-2 scheduler (`w02/sm2-package`). Known gap: `splitFields` drops escaped quotes (`""`). Run tests from a local session.
