@@ -132,4 +132,24 @@ struct SM2Tests {
         #expect(sut.intervalDays == Int(round(6 * 2.5)))
         #expect(sut.repetitions == 3)
     }
+    
+    @Test func dueDateAddsTheGivenInterval() {
+        // 1. Build a Chicago calendar and a fixed review date
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "America/Chicago")!
+        
+        var components = DateComponents()
+        components.year = 2026
+        components.month = 11
+        components.day = 24
+        components.hour = 14
+        components.minute = 0
+        let novemberDate = calendar.date(from: components)!
+        
+        let sut = dueDate(reviewDate: novemberDate, intervalDays: 7, calendar: calendar)
+        
+        #expect(calendar.component(.month, from: sut) == 12)
+        #expect(calendar.component(.day, from: sut) == 1)
+    }
+    
 }
