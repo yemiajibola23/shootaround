@@ -1,6 +1,6 @@
 # Shootaround
 
-Yemi's single-user iPhone app for daily interview drills: cards scheduled with spaced repetition (SM-2), backed by a local Python AI service that generates and grades cards. v1 ships Sun Dec 13, 2026. Private repo, one user.
+Yemi's single-user iPhone app for daily interview drills: cards scheduled with spaced repetition (SM-2), backed by a local Python AI service that generates and grades cards. v1 ships Sun Jan 3, 2027 (moved from Dec 13 on Oct 27, 2026; see Status). Private repo, one user.
 
 **The point of this project is that Yemi learns by building it.** Each build week teaches one interview concept, and that week's cards go into the app, so the app tests him on what he built it with. Learning matters as much as the finished app. Every rule below serves that.
 
@@ -108,4 +108,4 @@ One branch = one conversation = one Notion task. If a task is too big for one se
 ## Status
 
 Live state: the Notion task and the latest file in `docs/logs/`. Read both first every session.
-Summary: Week 1 sessions 1–2 merged (PR #1 Card + enums; PR #4 Review + `parseRow`). Week 1 session 3 merged (PR #7: `splitFields`, `parseDeck`, 20-card deck). Learning method v2 adopted Oct 18, 2026 after a 12-question skills assessment (see `docs/learning-method.md`). Week 2 session 1 merged (PR #9: `sm2Update`, 5 tests). W02-B (`w02/sm2-due-dates`) in progress: 8 tests, `dueDate`; 2 tests left before PR. Then W02-C · Package the SM-2 scheduler (`w02/sm2-package`). Known gap: `splitFields` drops escaped quotes (`""`). Run tests from a local session.
+Summary: Week 1 sessions 1–2 merged (PR #1 Card + enums; PR #4 Review + `parseRow`). Week 1 session 3 merged (PR #7: `splitFields`, `parseDeck`, 20-card deck). Learning method v2 adopted Oct 18, 2026 after a 12-question skills assessment (see `docs/learning-method.md`). Week 2 sessions 1–3 merged (PR #9: `sm2Update`, 5 tests; PR #10: `dueDate`, boundary and tolerance tests, 10 SM-2 tests). Ship date moved Dec 13, 2026 → Sun Jan 3, 2027 on Oct 27, planned at 3 sessions a week (Tue/Thu/Sun, 2.5 h): about 24 sessions fit, with no slack. RAG (W7) moves to January with the streak and NBA data deck. v1 = review loop, sync, `/generate`, `/grade` + evals, CI, README, demo. If the plan slips, fall back to a partial demo. Next: W02-C · Package the SM-2 scheduler (`w02/sm2-package`). Known gap: `splitFields` drops escaped quotes (`""`). Run tests from a local session.
