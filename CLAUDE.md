@@ -10,7 +10,7 @@ Yemi's single-user iPhone app for daily interview drills: cards scheduled with s
 - `service/` — FastAPI service (Python, Week 5+). Empty until then.
 - `data/decks/` — CSV card decks. Columns = Card fields minus the SM-2 fields.
 - `docs/logs/` — session logs, one per branch (`wNN-short-name.md`).
-- `scripts/notion_sync.py` — links a merged PR to its Notion task. `scripts/merge_and_sync.sh <pr>` merges and syncs in one step.
+- `scripts/notion_sync.py` — links a merged PR to its Notion task. `scripts/sync.sh <pr>` runs it for a PR already merged on GitHub.
 - `.github/pull_request_template.md` — PR body template.
 - Scope doc ("Shootaround v1 Scope", in the claude.ai Project) — data model, architecture, weekly milestones. Read before planning any week.
 
@@ -95,14 +95,14 @@ One branch = one conversation = one Notion task. If a task is too big for one se
 - Branches: `wNN/short-name` for build tasks (e.g. `w02/sm2-scheduler`); `chore/short-name` for tooling. Branch from `main`.
 - PR title `TASK-NN: Title`. Body `Closes TASK-NN` (task → Done, Completed on, PR link) or `Ref TASK-NN` (link only).
 - Commit after each red → green → refactor cycle: Claude commits Yemi's work once a piece is green, and again after a refactor.
-- Claude opens the PR. After Yemi approves, run `scripts/merge_and_sync.sh <pr>` (the GitHub Action was retired in PR #2; sync is local).
+- Claude opens the PR. Yemi reviews and merges on GitHub; then run `scripts/sync.sh <pr>` to update the Notion task (the GitHub Action was retired in PR #2; sync is local).
 
 ## Guardrails (never break these)
 
 - **Don't write Yemi's learning code** in `app/` or `service/` unless he's asked twice (rule 1 above). Chores are fine.
 - **Notion:** the Tasks database is shared with the Second Brain. The sync script may write only `Status`, `Done`, `Completed on` and `PR`. Never delete pages; never change the schema.
 - **Secrets:** the Notion token lives in the macOS Keychain item `notion-sync` (or `$NOTION_TOKEN`). Never commit `.env` or tokens; never print secret values.
-- **Git:** never commit to `main`; no force-pushes; no rewriting `main`; don't delete branches you didn't create (`merge_and_sync.sh` deleting the merged PR branch is fine).
+- **Git:** never commit to `main`; no force-pushes; no rewriting `main`; don't delete branches you didn't create.
 - **Deck data:** `data/decks/*.csv` is Yemi's card content. Append rows; don't rewrite or reorder existing ones without asking.
 
 ## Status
