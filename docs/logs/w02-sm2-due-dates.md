@@ -13,3 +13,17 @@
 - **Not covered / open:** grade-5 ease test (L1, use tolerance, expect 2.6); second `dueDate` test with a different interval (would have caught the hardcoded `2`); the `!` in `dueDate` is undocumented; `newRepetitons` typo, `gap` name, `var newInterval` could be `let`. Branch not pushed (Claude's git push/pull fails on SSH host key; Yemi pushes).
 - **Cards:** 5 rows appended to `data/decks/week02.csv` (calendar arithmetic x2, dependency injection, floating-point tolerance, test oracle).
 - **What's next:** finish W02-B (2 tests, then PR), then W02-C · Package the SM-2 scheduler.
+
+# Session 6 log (continues `w02/sm2-due-dates`)
+
+- **Branch / task / date:** w02/sm2-due-dates / TASK-98 W02-B / 2026-10-27
+- **Concepts covered:** boundary testing (Refresh, L2); calendar arithmetic (New, L2) used in a second test; floating-point tolerance used in a real test
+- **Built (2 commits):** `gradeFiveRaisesEase` (86a082a); `dueDateAddsTheGivenInterval` (b3eda98). 10 SM-2 tests, all green. Done-when ("10+ tests") met.
+- **Concept score:** open 2+2+1 = 5/6; green explanations 1+1 = 2/4; close 2+2+2 = 6/6; total 13/16 (81%)
+- **Build score:** piece 4 (L1): 0 hints. Piece 5 (L2): 0 hints.
+- **Level changes:** SM-2 test pieces back to L2 after the L1 piece. Floating-point tolerance 2/2 at open (first clean score); dependency injection 2/2 at open and in the close code question.
+- **Weak spots:** self-explanations name the term but explain the wrong test or skip the because (1/2 on every green); `try?` loses the error/reason (1/2 again); `firstPassSetsOneDayInterval` still compares ease with `==`
+- **Claude process error:** committed piece 4 with Yemi's temporary mutation (`0.15`) still in `calculateEase`. Caught immediately, reverted by Yemi, amended before any push. Rule: check `git diff` for leftover mutations before every commit.
+- **Not covered / open:** `!` in `dueDate` undocumented; `newRepetitons` typo, `gap` name, `var newInterval` could be `let`; `Int(round(6 * 2.5))` could be a literal 15
+- **Cards:** 4 rows appended to `data/decks/week02.csv` (mutation checking, grade boundary, hidden inputs, second dueDate test)
+- **What's next:** W02-C · Package the SM-2 scheduler (`w02/sm2-package`): Swift packages + access control (New, L1). Move `SM2State`, `sm2Update`, `calculateEase`, `dueDate` out of `SM2Tests.swift`.
