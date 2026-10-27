@@ -122,4 +122,14 @@ struct SM2Tests {
         #expect(sut.intervalDays == 15)
         #expect(abs(sut.ease - 2.36) < 0.0001)
     }
+    
+    @Test func gradeFiveRaisesEase() {
+        let state = SM2State(ease: 2.5, intervalDays: 6, repetitions: 2)
+
+        let sut = sm2Update(state, grade: 5)
+                
+        #expect(abs(sut.ease - (2.5 + 0.1)) < 0.0001)
+        #expect(sut.intervalDays == Int(round(6 * 2.5)))
+        #expect(sut.repetitions == 3)
+    }
 }
