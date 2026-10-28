@@ -1,6 +1,6 @@
-> Repo copy of the claude.ai Project doc `claude/learning-method.md` (v2, updated Oct 18, 2026). If the two differ, update both.
+> Repo copy of the claude.ai Project doc `claude/learning-method.md` (v2, updated Oct 27, 2026). If the two differ, update both.
 
-# Shootaround learning method (v2 · updated Oct 18, 2026)
+# Shootaround learning method (v2 · updated Oct 27, 2026)
 
 Session chats read this doc to set levels, pick review questions and format replies. It replaces the single global L1/L2/L3 level in the project instructions.
 
@@ -124,9 +124,9 @@ Twelve questions, one at a time. 8/20 on the ten scored questions (40%).
 | LLM basics: tokens, temperature, system prompts | L1 | New | assessed (Q11) |
 | Structured output (JSON → Pydantic) | L1 | New | assessed |
 | Provider interface (Protocol/ABC) | L1 | New | est. |
-| RAG pipeline: chunk → embed → store → retrieve → generate | L1 | New | assessed (Q10) |
-| Embeddings + vector similarity | L1 | New | assessed |
-| ChromaDB + citations | L1 | New | est. |
+| RAG pipeline: chunk → embed → store → retrieve → generate (moved to January) | L1 | New | assessed (Q10) |
+| Embeddings + vector similarity (moved to January) | L1 | New | assessed |
+| ChromaDB + citations (moved to January) | L1 | New | est. |
 | LLM-as-judge grading | L1 | New | est. |
 | Evals + agreement metrics | L1 | New | est. |
 
@@ -148,22 +148,25 @@ Twelve questions, one at a time. 8/20 on the ten scored questions (40%).
 2. **LLM basics before Week 6.** Fold temperature, tokens and system prompts into the Week 6 open as the pretest, not a separate session.
 3. **Seed the deck now.** Add cards for the twelve assessment answers so Shootaround drills them from Week 3.
 4. **Schedule risk.** Weeks 5–8 are now almost all L1/New. Expect some tasks to split in two. The scope doc's carry-over-once rule covers one miss; flag early if Week 6 or 7 runs long.
-5. **Decided Oct 18:** the streak (W04-B) and the NBA data deck (W09-A/B, plus the W10 stats drills) move to January. v1 lands about Dec 22.
+5. **Decided Oct 18:** the streak (W04-B) and the NBA data deck (W09-A/B, plus the W10 stats drills) move to January. v1 lands about Dec 22. (Superseded Oct 27: see item 6.)
+6. **Decided Oct 27:** v1 ships Sun Jan 3, 2027 (was Dec 13). Pace was about 0.6 plan-weeks per week, so the plan is now 3 sessions a week (Tue/Thu/Sun, 2.5 h). RAG (W7) moves to January with the streak and the NBA data deck. Gate 1 moves to Nov 17 and Gate 2 to Dec 20; Go stays Jan 4. See `claude/schedule-reset-oct-27.md`.
 
-### Revised session schedule (Tue/Thu, one task per session)
-| Week of | Tue | Thu |
-|---|---|---|
-| Oct 19 | W01-C | W02-A |
-| Oct 26 | W02-B | W03-A |
-| Nov 2 | W03-B | W04-A (Gate 1, Nov 8) |
-| Nov 9 | W05-0 Python primer | W05-A part 1 |
-| Nov 16 | W05-A part 2 | W05-B |
-| Nov 23 | W06-A | off (Thanksgiving) |
-| Nov 30 | W06-B | W07-A |
-| Dec 7 | W07-B | W08-A |
-| Dec 14 | W08-B | W10-A CI |
-| Dec 21 | W10-B write-up | buffer |
-| Jan 2027 | W04-B streak (Jan 5) | W09-A (Jan 7), W09-B (Jan 12) |
+### Revised session schedule (Tue/Thu/Sun, as of Oct 27, 2026)
+Two-part tasks take two sessions. Thanksgiving, Dec 24 and Dec 31 are off. About 24 sessions fit through Jan 3, with no slack.
+
+| Week of | Tue | Thu | Sun |
+|---|---|---|---|
+| Nov 2 | W02-C package SM-2 | W03-A part 1 | W03-A part 2 |
+| Nov 9 | W03-B part 1 | W03-B part 2 | W04-A part 1 |
+| Nov 16 | W04-A part 2 (Gate 1, Nov 17) | W05-0 Python primer | W05-A part 1 |
+| Nov 23 | W05-A part 2 | off (Thanksgiving) | W05-B part 1 |
+| Nov 30 | W05-B part 2 | W06-A part 1 | W06-A part 2 |
+| Dec 7 | W06-B part 1 | W06-B part 2 | W08-A part 1 |
+| Dec 14 | W08-A part 2 | W08-B part 1 | W08-B part 2 (Gate 2, Dec 20) |
+| Dec 21 | W10-A CI | off (Dec 24) | W10-B part 1 |
+| Dec 28 | W10-B part 2 | off (Dec 31) | Demo video + TestFlight (ship, Jan 3) |
+
+January 2027, after v1: W04-B streak (Jan 5), W09-A (Jan 7), W07-A RAG (Jan 10), W09-B (Jan 12), W07-B RAG (Jan 14). Go is Jan 4; mock interviews Jan 5.
 
 ## 8. Session protocol
 

@@ -2,7 +2,7 @@
 
 A single-user iPhone app for daily interview drills, scheduled with spaced repetition (SM-2) and backed by a local Python AI service.
 
-Status: v1 in progress (target Sun Dec 13, 2026).
+Status: v1 in progress (target Sun Jan 3, 2027).
 
 ## Layout
 
