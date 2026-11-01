@@ -66,10 +66,10 @@ struct SM2Tests {
     }
     
     @Test func dueDateCrossesFallBack() {
-        // 1. Build a Chicago calendar
+
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(identifier: "America/Chicago")!
-        // 2. Build a review time shortly after midnight on Oct 31, 2026
+
         var components = DateComponents()
         components.year = 2026
         components.month = 10

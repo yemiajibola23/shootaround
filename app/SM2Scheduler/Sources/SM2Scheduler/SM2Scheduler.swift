@@ -36,6 +36,6 @@ public func sm2Update(_ state: SM2State, grade: Int) -> SM2State {
     return SM2State(ease: max(newEase, 1.3), intervalDays: newInterval, repetitions: newRepetitons)
 }
 
-func dueDate(reviewDate: Date, intervalDays: Int, calendar: Calendar) -> Date {
+public func dueDate(reviewDate: Date, intervalDays: Int, calendar: Calendar) -> Date {
         return calendar.date(byAdding: .day, value: intervalDays, to: reviewDate)!
 }
