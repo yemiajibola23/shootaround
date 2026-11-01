@@ -1,9 +1,15 @@
 import Foundation
 
-struct SM2State {
-    var ease: Double
-    var intervalDays: Int
-    var repetitions: Int
+public struct SM2State {
+    public private(set) var ease: Double
+    public private(set) var intervalDays: Int
+    public private(set) var repetitions: Int
+    
+    public init(ease: Double, intervalDays: Int, repetitions: Int) {
+        self.ease = ease
+        self.intervalDays = intervalDays
+        self.repetitions = repetitions
+    }
 }
 
 func calculateEase(oldEase: Double, grade: Int) -> Double {
@@ -12,7 +18,7 @@ func calculateEase(oldEase: Double, grade: Int) -> Double {
     return oldEase + easeFormula
 }
 
-func sm2Update(_ state: SM2State, grade: Int) -> SM2State {
+public func sm2Update(_ state: SM2State, grade: Int) -> SM2State {
     if grade < 3 { return SM2State(ease: state.ease, intervalDays: 1, repetitions: 0) }
 
     var newInterval: Int
