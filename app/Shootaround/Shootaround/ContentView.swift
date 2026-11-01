@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SM2Scheduler
 
 struct ContentView: View {
     var body: some View {

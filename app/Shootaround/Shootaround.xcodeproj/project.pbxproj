@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DBCF18BD3096EBB600285738 /* SM2Scheduler in Frameworks */ = {isa = PBXBuildFile; productRef = DBCF18BC3096EBB600285738 /* SM2Scheduler */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		DB62CD1D30746EB800769E49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -38,6 +42,7 @@
 		DB62CD0C30746EB800769E49 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				DBCF18BD3096EBB600285738 /* SM2Scheduler in Frameworks */,
 			);
 		};
 		DB62CD1930746EB800769E49 /* Frameworks */ = {
@@ -83,6 +88,9 @@
 				DB62CD1130746EB800769E49 /* Shootaround */,
 			);
 			name = Shootaround;
+			packageProductDependencies = (
+				DBCF18BC3096EBB600285738 /* SM2Scheduler */,
+			);
 			productName = Shootaround;
 			productReference = DB62CD0F30746EB800769E49 /* Shootaround.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +145,9 @@
 			);
 			mainGroup = DB62CD0630746EB800769E49;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DBCF18BB3096EBB600285738 /* XCLocalSwiftPackageReference "../SM2Scheduler" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DB62CD1030746EB800769E49 /* Products */;
 			projectDirPath = "";
@@ -453,6 +464,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		DBCF18BB3096EBB600285738 /* XCLocalSwiftPackageReference "../SM2Scheduler" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../SM2Scheduler;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBCF18BC3096EBB600285738 /* SM2Scheduler */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SM2Scheduler;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB62CD0730746EB800769E49 /* Project object */;
 	validationLevel = 1;
