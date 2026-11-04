@@ -10,14 +10,6 @@ import SwiftData
 import Foundation
 @testable import Shootaround
 
-func makeContainer(storeURL: URL?) throws -> ModelContainer {
-    guard let url = storeURL else { return try ModelContainer(for: Card.self, configurations: ModelConfiguration()) }
-
-    let config = ModelConfiguration(url: url)
-
-    return try ModelContainer(for: Card.self, configurations: config)
-}
-
 struct PersistenceTests {
 
     @Test func cardSurvivesANewContainer() throws {
