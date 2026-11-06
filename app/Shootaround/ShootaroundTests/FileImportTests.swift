@@ -5,6 +5,7 @@
 
 import Testing
 import Foundation
+import SwiftData
 @testable import Shootaround
 
 struct FileImportTests {
@@ -26,13 +27,16 @@ struct FileImportTests {
 
         #expect(res == csv)
     }
+
+    @Test func importDeckFileImportsCardsFromAFile() throws {
+        // 1. Write a 2-card CSV to a temp .csv file
+        // 2. Make a container on a temp .store file, then a context from it
+        // 3. Call importDeckFile(from:into:)
+        // 4. Expect the returned count and the fetched Card count
+    }
 }
 
-func readDeck(from url: URL) throws -> String {
-    // 1. Start access: url.startAccessingSecurityScopedResource() returns a Bool. Keep it.
-    let granted = url.startAccessingSecurityScopedResource()
-    // 2. Schedule the stop with defer, only if access was granted.
-    defer { if granted { url.stopAccessingSecurityScopedResource() } }
-    // 3. Read and return the text: try String(contentsOf:encoding:)
-    return try String(contentsOf: url, encoding: .utf8)
+func importDeckFile(from url: URL, into context: ModelContext) throws -> Int {
+    // 1. Read the file's text with readDeck(from:)
+    // 2. Hand that text to importDeck(_:into:) and return its count
 }
