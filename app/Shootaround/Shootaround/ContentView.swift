@@ -24,7 +24,9 @@ struct ContentView: View {
                     switch result {
                     case .success(let url):
                         do {
-                            _ = try importDeckFile(from: url, into: context)
+                            let count = try importDeckFile(from: url, into: context)
+                            print("Imported: store has \(count) cards.")
+                            
                         } catch {
                             print(error)
                         }
