@@ -48,9 +48,3 @@ struct FileImportTests {
         #expect(try context.fetch(FetchDescriptor<Card>()).count == 2)
     }
 }
-
-func importDeckFile(from url: URL, into context: ModelContext) throws -> Int {
-    let  text = try readDeck(from: url)
-
-    return try importDeck(text, into: context)
-}
