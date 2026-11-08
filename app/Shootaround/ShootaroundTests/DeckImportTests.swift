@@ -17,12 +17,7 @@ struct DeckImportTests {
            iOS,Swift enum raw values,code,"Write an enum Conference with raw type String, cases east and west, and text East and West.","enum Conference: String { case east = ""East""; case west = ""West"" }",manual
            """
         
-        let temporaryDirectory = FileManager.default.temporaryDirectory
-        let url = temporaryDirectory.appending(path: UUID().uuidString + ".store")
-       
-        let container = try! makeContainer(storeURL: url)
-        let context = ModelContext(container)
-
+        let context = try makeTestContext()
         let count = try importDeck(csv, into: context)
 
         #expect(count == 2)
@@ -31,11 +26,7 @@ struct DeckImportTests {
     }
 
     @Test func importingTwiceKeepsReviewProgress() throws {
-        let temporaryDirectory = FileManager.default.temporaryDirectory
-        let url = temporaryDirectory.appending(path: UUID().uuidString + ".store")
-        
-        let container = try! makeContainer(storeURL: url)
-        let context = ModelContext(container)
+        let context = try makeTestContext()
         
         let csv = """
            deck,concept,kind,prompt,answer,source
@@ -63,21 +54,16 @@ struct DeckImportTests {
     }
 
     @Test func duplicatePromptInOneCSVIsImportedOnce() throws {
-        // 1. Temp-file store and context
-        let temporaryDirectory = FileManager.default.temporaryDirectory
-        let url = temporaryDirectory.appending(path: UUID().uuidString + ".store")
-        
-        let container = try! makeContainer(storeURL: url)
-        let context = ModelContext(container)
-        // 2. csv = header + 2 rows that share the same prompt
+        let context = try makeTestContext()
+
         let csv = """
            deck,concept,kind,prompt,answer,source
            AI Engineering,Swift enum raw values,recall,"What does `enum Deck: String` give you for free?","A failable initializer init?(rawValue:) that returns the matching case, or nil if the text matches no case",manual
            iOS,Swift enum raw values,code,"What does `enum Deck: String` give you for free?","enum Conference: String { case east = ""East""; case west = ""West"" }",manual
            """
-        // 3. try importDeck(csv, into: context)
+
         let cardCount = try importDeck(csv, into: context)
-        // 4. #expect the number of Cards in the store == 1
+
         #expect(cardCount == 1)
     }
 

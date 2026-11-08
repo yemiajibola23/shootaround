@@ -13,12 +13,7 @@ import Foundation
 struct DueQueueTests {
 
     @Test func dueDescriptorReturnsOnlyDueCardsSoonestFirst() throws {
-        let temporaryDirectory = FileManager.default.temporaryDirectory
-        let url = temporaryDirectory.appending(path: UUID().uuidString + ".store")
-        
-        let container = try makeContainer(storeURL: url)
-        let context = ModelContext(container)
-        
+        let context = try makeTestContext()
         
         let now = Date(timeIntervalSince1970: 1_800_000_000)
         

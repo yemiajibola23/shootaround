@@ -13,8 +13,7 @@ import Foundation
 struct PersistenceTests {
 
     @Test func cardSurvivesANewContainer() throws {
-        let temporaryDirectory = FileManager.default.temporaryDirectory
-        let url = temporaryDirectory.appending(path: UUID().uuidString + ".store")
+        let url = testURL()
         
         let first = try makeContainer(storeURL: url)
         var context = ModelContext(first)

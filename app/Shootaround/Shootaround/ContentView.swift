@@ -15,19 +15,14 @@ struct ContentView: View {
     @State private var isImporting = false
     @Environment(\.modelContext) private var context
     @Query private var dueCards: [Card]
-    // 3. In body, show the due cards' prompts in a List
-    //    (keep the Import Deck button)
     init(now: Date = .now) {
         _dueCards = Query(dueCardsDescriptor(now: now))
     }
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            List(dueCards) { Text($0.prompt) }
+            Text("List count: \(dueCards.count)")
+            List(dueCards) { Text($0.prompt)}
             Button("Import Deck") { isImporting = true }
                 .fileImporter(isPresented: $isImporting, allowedContentTypes: [.commaSeparatedText]) { result in
                     switch result {
