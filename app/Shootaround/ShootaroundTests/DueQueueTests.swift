@@ -8,14 +8,6 @@ import SwiftData
 import Foundation
 @testable import Shootaround
 
-// MARK: - System under test (moves into the app target once green)
-
-func dueCardsDescriptor(now: Date) -> FetchDescriptor<Card> {
-    let predicate = #Predicate<Card> { $0.due <= now }
-
-    return FetchDescriptor(predicate: predicate, sortBy: [SortDescriptor(\Card.due)])
-}
-
 // MARK: - Tests
 
 struct DueQueueTests {
