@@ -34,22 +34,18 @@ import SM2Scheduler
         card.ease = state.ease
         card.intervalDays = state.intervalDays
         card.repetitions = state.repetitions
-
         card.due = dueDate(reviewDate: now, intervalDays: card.intervalDays, calendar: calendar)
-        // 5. Insert a Review (cardID, reviewedAt: now, grade: value) into context
+
         let review = Review(cardID: card.id, reviewedAt: now, grade: value, typedAnswer: card.answer, aiScore: nil)
         context.insert(review)
 
         // I chose do/catch to capture the error to display to the user.
         do {
             try context.save()
-            print("REVIEW CHECK: Saved review with card id: \(review.cardID) successfully!")
         } catch {
-            print("REVIEW CHECK:  \(error)")
+            print(error)
         }
-        // 7. Move on to the next card (currentIndex)
         currentIndex += 1
-        // 8. Hide the answer again (isRevealed)
         isRevealed = false
     }
 }
