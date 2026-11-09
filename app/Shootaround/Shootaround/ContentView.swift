@@ -10,15 +10,19 @@ import SM2Scheduler
 import SwiftData
 internal import UniformTypeIdentifiers
 
+
 struct ContentView: View {
     @State private var isImporting = false
     @Environment(\.modelContext) private var context
+    @Query private var dueCards: [Card]
+    init(now: Date = .now) {
+        _dueCards = Query(dueCardsDescriptor(now: now))
+    }
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("List count: \(dueCards.count)")
+            List(dueCards) { Text($0.prompt)}
             Button("Import Deck") { isImporting = true }
                 .fileImporter(isPresented: $isImporting, allowedContentTypes: [.commaSeparatedText]) { result in
                     switch result {
