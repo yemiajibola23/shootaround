@@ -47,6 +47,10 @@ import SM2Scheduler
         } catch {
             print("REVIEW CHECK:  \(error)")
         }
+        // 7. Move on to the next card (currentIndex)
+        currentIndex += 1
+        // 8. Hide the answer again (isRevealed)
+        isRevealed = false
     }
 }
 
@@ -79,7 +83,7 @@ struct ReviewSessionTests {
         let expectedState = sm2Update(state, grade: 4)
         let expectedDueDate = dueDate(reviewDate: now, intervalDays: expectedState.intervalDays, calendar: calendar)
         
-        // 2. Grade it 4 with a fixed now and calendar
+
         let testContext = try! makeTestContext()
 
         let sut = ReviewSession(cards: [card1], context: testContext)
@@ -87,8 +91,6 @@ struct ReviewSessionTests {
         sut.grade(4, now: now, calendar: calendar)
 
 
-        // 3. Expect repetitions, intervalDays and due to match what
-        //    sm2Update and dueDate return for the same inputs
         #expect(card1.repetitions == expectedState.repetitions)
         #expect(card1.intervalDays == expectedState.intervalDays)
         #expect(card1.due == expectedDueDate)
@@ -96,34 +98,48 @@ struct ReviewSessionTests {
     }
     
     @Test func gradingAnEmptySessionDoesNothing() {
-        // 1. Make a session with no cards and reveal it
+
         let context = try! makeTestContext()
         let sut = ReviewSession(cards: [], context: context)
         sut.reveal()
-        // 2. Call grade(4, now:, calendar:)
+
         sut.grade(4, now: .now)
-        // 3. Expect isRevealed is still true (we got here without crashing)
+
         #expect(sut.isRevealed)
     }
 
     @Test func gradingLogsAReview() throws {
-        // 1. Make a context with makeTestContext(), insert a card, make a
-        //    session with that card and context, and reveal it
         let card1 = Card(deck: .ios, concept: "structured concurrency", kind: .recall, prompt: "What is a task group?", answer: "A way to run child tasks in parallel", source: .manual)
         let context = try makeTestContext()
         let sut = ReviewSession(cards: [card1], context: context)
         sut.reveal()
-        // 2. Grade it 4 with a fixed now
+
         let now = Date(timeIntervalSince1970: 1_800_000_000)
         sut.grade(4, now: now)
         // 3. Fetch every Review from the context
         let reviews = try context.fetch(FetchDescriptor<Review>())
         
-        // 4. Expect exactly one, with the card's id, grade 4 and reviewedAt == now
+
         #expect(reviews.count == 1)
         let review = reviews.first
         #expect(review?.cardID == card1.id)
         #expect(review?.grade == 4)
         #expect(review?.reviewedAt == now)
+    }
+
+    @Test func gradingAdvancesToTheNextCard() throws {
+        let card1 = Card(deck: .ios, concept: "structured concurrency", kind: .recall, prompt: "What is a task group?", answer: "A way to run child tasks in parallel", source: .manual)
+        let card2 = Card(deck: .ios, concept: "structured concurrency", kind: .recall, prompt: "What is grand central dispatch?", answer: "A way to run child tasks in parallel", source: .manual)
+        let context = try makeTestContext()
+
+        
+        let sut = ReviewSession(cards: [card1, card2], context: context)
+        sut.reveal()
+        
+        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        sut.grade(2, now: now)
+
+        #expect(sut.currentIndex == 1)
+        #expect(sut.isRevealed == false)
     }
 }
