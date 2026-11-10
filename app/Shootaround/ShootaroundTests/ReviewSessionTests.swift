@@ -92,4 +92,29 @@ struct ReviewSessionTests {
         #expect(sut.currentIndex == 1)
         #expect(sut.isRevealed == false)
     }
+    
+    @Test func currentCardIsNilWhenTheSessionIsFinished() throws {
+        let context = try makeTestContext()
+        let card1 = Card(deck: .ios, concept: "structured concurrency", kind: .recall, prompt: "What is a task group?", answer: "A way to run child tasks in parallel", source: .manual)
+        
+        let sut = ReviewSession(cards: [card1], context: context)
+    
+        sut.reveal()
+        sut.grade(4, now: .now)
+        
+        #expect(sut.currentCard == nil)
+    }
+    
+    @Test func currentCardMovesToNextCardAfterGrading() throws {
+        let context = try makeTestContext()
+        let card1 = Card(deck: .ios, concept: "structured concurrency", kind: .recall, prompt: "What is a task group?", answer: "A way to run child tasks in parallel", source: .manual)
+        let card2 = Card(deck: .ios, concept: "structured concurrency", kind: .recall, prompt: "What is grand central dispatch?", answer: "A way to run child tasks in parallel", source: .manual)
+
+        let sut = ReviewSession(cards: [card1, card2], context: context)
+    
+        sut.reveal()
+        sut.grade(4, now: .now)
+        
+        #expect(sut.currentCard === card2)
+    }
 }

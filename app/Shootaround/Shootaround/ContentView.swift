@@ -16,7 +16,8 @@ struct ContentView: View {
     @Environment(\.modelContext) private var context
     @Query private var dueCards: [Card]
     init(now: Date = .now) {
-        _dueCards = Query(dueCardsDescriptor(now: now))
+        _dueCards = Query(dueCard
+                          sDescriptor(now: now))
     }
     
     var body: some View {

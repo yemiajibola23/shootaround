@@ -18,6 +18,12 @@ import SM2Scheduler
         self.cards = cards
         self.context = context
     }
+    
+    var currentCard: Card? {
+        if cards.indices.contains(currentIndex) { return cards[currentIndex] }
+
+        return nil
+    }
 
     func reveal() { isRevealed = true }
 
