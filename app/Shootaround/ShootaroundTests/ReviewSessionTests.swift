@@ -117,4 +117,23 @@ struct ReviewSessionTests {
         
         #expect(sut.currentCard === card2)
     }
+    
+    
+    @Test func gradingLogsWhatWasTyped() throws {
+        // set up a card and a session, reveal
+        let context = try makeTestContext()
+        let card1 = Card(deck: .ios, concept: "structured concurrency", kind: .recall, prompt: "What is a task group?", answer: "A way to run child tasks in parallel", source: .manual)
+        
+        let sut = ReviewSession(cards: [card1], context: context)
+        let answer = "Wrong answer"
+    
+        sut.reveal()
+
+        sut.grade(3, typedAnswer: answer, now: .now)
+
+        let reviews = try context.fetch(FetchDescriptor<Review>())
+        
+        #expect(reviews.first?.typedAnswer == answer)
+        
+    }
 }

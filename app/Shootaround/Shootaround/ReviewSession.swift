@@ -26,8 +26,8 @@ import SM2Scheduler
     }
 
     func reveal() { isRevealed = true }
-
-    func grade(_ value: Int, now: Date, calendar: Calendar = .current) {
+ 
+    func grade(_ value: Int, typedAnswer: String? = nil, now: Date, calendar: Calendar = .current) {
         guard isRevealed, cards.indices.contains(currentIndex) else { return }
 
         let card = cards[currentIndex]
@@ -38,7 +38,7 @@ import SM2Scheduler
         card.repetitions = state.repetitions
         card.due = dueDate(reviewDate: now, intervalDays: card.intervalDays, calendar: calendar)
 
-        let review = Review(cardID: card.id, reviewedAt: now, grade: value, typedAnswer: card.answer, aiScore: nil)
+        let review = Review(cardID: card.id, reviewedAt: now, grade: value, typedAnswer: typedAnswer, aiScore: nil)
         context.insert(review)
 
         // I chose do/catch to capture the error to display to the user.
