@@ -22,7 +22,12 @@ struct ReviewView: View {
             
             if session.isRevealed {
                 Text(session.currentCard?.answer ?? "Done")
-                Button("Grade") { session.grade(3, now: .now) }
+                Text("Grade it")
+                HStack {
+                    ForEach(0..<6) { num in
+                        Button("\(num)") { session.grade(num, now: .now) }
+                    }
+                }
             }
             
         }
