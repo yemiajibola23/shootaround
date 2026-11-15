@@ -96,6 +96,7 @@ One branch = one conversation = one Notion task. If a task is too big for one se
 - Branches: `wNN/short-name` for build tasks (e.g. `w02/sm2-scheduler`); `chore/short-name` for tooling. Branch from `main`.
 - PR title `TASK-NN: Title`. Body `Closes TASK-NN` (task → Done, Completed on, PR link) or `Ref TASK-NN` (link only).
 - Commit after each red → green → refactor cycle: Claude commits Yemi's work once a piece is green, and again after a refactor.
+- **Start Shootaround as a local session** in the desktop app, not a cloud session. Cloud sessions run in a sandbox where `git push`, `gh` and `xcodebuild` are blocked, so pushes, PRs and test runs need a local session.
 - Claude opens the PR. Yemi reviews and merges on GitHub; then run `scripts/sync.sh <pr>` to update the Notion task (the GitHub Action was retired in PR #2; sync is local).
 
 ## Guardrails (never break these)
