@@ -10,6 +10,7 @@ Yemi's single-user iPhone app for daily interview drills: cards scheduled with s
 - `service/` — FastAPI service (Python, Week 5+). Empty until then.
 - `data/decks/` — CSV card decks. Columns = Card fields minus the SM-2 fields.
 - `docs/logs/` — session logs, one per branch (`wNN-short-name.md`).
+- `.claude/skills/next-session/` — the `/next-session` kickoff skill. `scripts/next-session.sh` prints the state brief it uses (read-only).
 - `scripts/notion_sync.py` — links a merged PR to its Notion task. `scripts/sync.sh <pr>` runs it for a PR already merged on GitHub.
 - `.github/pull_request_template.md` — PR body template.
 - Scope doc ("Shootaround v1 Scope", in the claude.ai Project) — data model, architecture, weekly milestones. Read before planning any week.
