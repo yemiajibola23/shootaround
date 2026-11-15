@@ -9,6 +9,14 @@ Kickoff for one Shootaround build session. **Claude does the chores; Yemi does t
 
 Optional argument: a task or branch to force (`/next-session TASK-95`). Say "prep only" to do the chores and stop after the brief.
 
+## 0. Pre-flight: is this a local session?
+
+Before anything else, check where this session runs. A **local** Code-tab session can `git push`, run `gh` and `xcodebuild`, and delete git lock files. A cloud session, or a chat linked to the Mac through the device bridge, cannot.
+
+- Signs of a non-local session: the shell is a Linux VM with `$HOME/mnt/<folder>` mounts (`device_bash`), `uname` is not Darwin, `which xcodebuild gh` finds nothing, or `git fetch` over SSH fails.
+- If so, say it in one line **before any chores**: "This is not a local session, so I can't push, open PRs or run tests. Restart from the Code tab with Local and the shootaround folder." Then ask whether to continue anyway (teaching and reviews still work; Yemi pushes, runs tests and opens the PR).
+- If he continues, hand pushes and test runs back to him and print the PR title and body at the Close.
+
 ## 1. Gather state (no questions yet)
 
 1. Run `scripts/next-session.sh`. It prints today's date, git state, unpushed branches, lock files, the CLAUDE.md "Next:" line, and the last session's branch, level changes, weak spots, open items and What's next.
