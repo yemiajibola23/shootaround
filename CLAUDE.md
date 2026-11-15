@@ -10,6 +10,7 @@ Yemi's single-user iPhone app for daily interview drills: cards scheduled with s
 - `service/` — FastAPI service (Python, Week 5+). Empty until then.
 - `data/decks/` — CSV card decks. Columns = Card fields minus the SM-2 fields.
 - `docs/logs/` — session logs, one per branch (`wNN-short-name.md`).
+- `.claude/skills/next-session/` — the `/next-session` kickoff skill. `scripts/next-session.sh` prints the state brief it uses (read-only).
 - `scripts/notion_sync.py` — links a merged PR to its Notion task. `scripts/sync.sh <pr>` runs it for a PR already merged on GitHub.
 - `.github/pull_request_template.md` — PR body template.
 - Scope doc ("Shootaround v1 Scope", in the claude.ai Project) — data model, architecture, weekly milestones. Read before planning any week.
@@ -95,6 +96,7 @@ One branch = one conversation = one Notion task. If a task is too big for one se
 - Branches: `wNN/short-name` for build tasks (e.g. `w02/sm2-scheduler`); `chore/short-name` for tooling. Branch from `main`.
 - PR title `TASK-NN: Title`. Body `Closes TASK-NN` (task → Done, Completed on, PR link) or `Ref TASK-NN` (link only).
 - Commit after each red → green → refactor cycle: Claude commits Yemi's work once a piece is green, and again after a refactor.
+- **Start Shootaround as a local session** in the desktop app, not a cloud session. Cloud sessions run in a sandbox where `git push`, `gh` and `xcodebuild` are blocked, so pushes, PRs and test runs need a local session.
 - Claude opens the PR. Yemi reviews and merges on GitHub; then run `scripts/sync.sh <pr>` to update the Notion task (the GitHub Action was retired in PR #2; sync is local).
 
 ## Guardrails (never break these)
