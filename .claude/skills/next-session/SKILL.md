@@ -24,7 +24,7 @@ Optional argument: a task or branch to force (`/next-session TASK-95`). Say "pre
 
 ## 3. Chores (do without asking)
 
-- **Previous branch.** Unpushed commits → tell Yemi to push (his step), then open the PR (`Closes`/`Ref TASK-NN`, template in `.github/`). Merged on GitHub → run `scripts/sync.sh <pr>` if the Notion task is not Done yet.
+- **Previous branch.** Unpushed commits → tell Yemi to push (his step), then open the PR (`Closes`/`Ref TASK-NN`, template in `.github/`). If `git push` or `gh` is blocked (sandboxed session), don't retry: print the PR title and body for Yemi to paste, and say a local session can open it. Merged on GitHub → run `scripts/sync.sh <pr>` if the Notion task is not Done yet.
 - **Sync main.** `git fetch` (script falls back to HTTPS; SSH fails from the device shell), then `git checkout main && git pull --ff-only`. Never commit to `main`.
 - **Branch.** Create `wNN/short-name` only for a new task.
 - **Lock files.** Stale `.git/*.lock` after commits: clear them if deletion is allowed, otherwise move aside as `.git/stale-*`. Ignore `objects/maintenance.lock`.
