@@ -61,7 +61,7 @@ struct DueListView: View {
     var body: some View {
         VStack {
             Text("List count: \(dueCards.count)")
-            List(dueCards) { Text($0.prompt)}
+            List(dueCards) { Text($0.prompt) }
             Button("Start Review") { isReviewing = true }
                 .sheet(isPresented: $isReviewing){ ReviewView(cards: dueCards, context: context) }
         }
