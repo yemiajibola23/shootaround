@@ -10,7 +10,8 @@ import SwiftData
 import Foundation
 
 
-enum Deck: String, Codable {
+enum Deck: String, Codable, Identifiable, CaseIterable {
+    var id: String { return self.rawValue }
     case aiEngineering = "AI Engineering"
     case ios = "iOS"
     case basketballData = "Basketball Data"
