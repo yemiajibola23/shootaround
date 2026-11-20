@@ -158,13 +158,15 @@ Two-part tasks take two sessions. Thanksgiving, Dec 24 and Dec 31 are off. About
 |---|---|---|---|
 | Nov 2 | W02-C package SM-2 | W03-A part 1 | W03-A part 2 |
 | Nov 9 | W03-B part 1 | W03-B part 2 | W04-A part 1 |
-| Nov 16 | W04-A part 2 (Gate 1, Nov 17) | W05-0 Python primer | W05-A part 1 |
+| Nov 16 | W04-A part 2 (Gate 1, Nov 17) | W05-0 Python primer (done Nov 19) | off (working); W05-A part 1 needs a make-up slot |
 | Nov 23 | W05-A part 2 | off (Thanksgiving) | W05-B part 1 |
 | Nov 30 | W05-B part 2 | W06-A part 1 | W06-A part 2 |
 | Dec 7 | W06-B part 1 | W06-B part 2 | W08-A part 1 |
 | Dec 14 | W08-A part 2 | W08-B part 1 | W08-B part 2 (Gate 2, Dec 20) |
 | Dec 21 | W10-A CI | off (Dec 24) | W10-B part 1 |
 | Dec 28 | W10-B part 2 | off (Dec 31) | Demo video + TestFlight (ship, Jan 3) |
+
+**Changed Nov 19:** Yemi works Sun Nov 22, and the Nov 19 session ran out of library time after the primer. W05-A part 1 has no slot yet. Yemi picks a make-up day. If none is found, every task after it slips one session, and the plan has no slack (see Oct 27).
 
 January 2027, after v1: W04-B streak (Jan 5), W09-A (Jan 7), W07-A RAG (Jan 10), W09-B (Jan 12), W07-B RAG (Jan 14). Go is Jan 4; mock interviews Jan 5.
 
