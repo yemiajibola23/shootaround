@@ -14,7 +14,7 @@ class Deck(StrEnum):
 
 class CardSource(StrEnum):
     manual = "manual"
-    job_assistant = "job assistant"
+    job_assistant = "jobAssistant"
     generated = "generated"
 
 class CardIn(BaseModel):
