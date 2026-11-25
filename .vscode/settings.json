@@ -1,0 +1,22 @@
+{
+  // AI features: built-in chat, Copilot, inline (ghost text) suggestions
+  "chat.disableAIFeatures": true,
+  "github.copilot.enable": { "*": false },
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "editor.inlineSuggest.enabled": false,
+
+  // Autocomplete: no suggestion popups while typing
+  "editor.quickSuggestions": { "other": "off", "comments": "off", "strings": "off" },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.wordBasedSuggestions": "off",
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.tabCompletion": "off",
+  "editor.parameterHints.enabled": false,
+
+  // Save files automatically shortly after you stop typing
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+
+  // Use the service's virtual environment so imports like pydantic resolve
+  "python.defaultInterpreterPath": "${workspaceFolder}/service/.venv/bin/python"
+}
