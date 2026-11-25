@@ -6,10 +6,21 @@ class CardKind(StrEnum):
     explain = "explain"
     recall = "recall"
 
+class Deck(StrEnum):
+    ai_engineering = "AI Engineering"
+    ios = "iOS"
+    basketball_data = "Basketball Data"
+    behavioral = "Behavioral"
+
+class CardSource(StrEnum):
+    manual = "manual"
+    job_assistant = "job assistant"
+    generated = "generated"
+
 class CardIn(BaseModel):
-    deck: str
+    deck: Deck
     concept: str
     kind: CardKind
     prompt: str
     answer: str
-    source:str = "manual"
+    source: CardSource = CardSource.manual
