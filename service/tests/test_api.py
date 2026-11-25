@@ -8,7 +8,7 @@ import pytest
 client = TestClient(app)
 
 @pytest.fixture(autouse=True)
-def reset_box_score():
+def reset_cards():
     cards.clear()   # runs before each test
 
 def test_post_card_returns_the_card():
